@@ -10,6 +10,7 @@
 const vscode = require('vscode');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -124,11 +125,39 @@ async function generateReadmeContent(folderPath, depth = 0, rootPath = folderPat
 }
 
 // This method is called when your extension is deactivated
+// 用于存储目录结构的哈希值
+const directoryHashes = new Map();
+
+// 计算目录结构的哈希值
+function calculateDirectoryHash(dirPath) {
+    const hash = crypto.createHash('md5');
+    function processDirectory(currentPath) {
+        const items = fs.readdirSync(currentPath, { withFileTypes: true })
+            .sort((a, b) => a.name.localeCompare(b.name));
+        
+        for (const item of items) {
+            if (item.name.toLowerCase() === 'readme.md') continue;
+            const fullPath = path.join(currentPath, item.name);
+            const relativePath = path.relative(dirPath, fullPath);
+            
+            if (item.isDirectory()) {
+                hash.update(`D:${relativePath}\n`);
+                processDirectory(fullPath);
+            } else {
+                hash.update(`F:${relativePath}\n`);
+            }
+        }
+    }
+    
+    processDirectory(dirPath);
+    return hash.digest('hex');
+}
+
 async function handleFileChange(uri) {
     const config = vscode.workspace.getConfiguration('AutoReadmeGen');
     if (!config.get('autoUpdateEnabled')) return;
     const readmeFileName = config.get('readmeFileName') || 'readme.md';
-if (path.basename(uri.fsPath) === readmeFileName) return;
+    if (path.basename(uri.fsPath) === readmeFileName) return;
     
     let currentDir = path.dirname(uri.fsPath);
     let readmePath = null;
@@ -152,9 +181,21 @@ if (path.basename(uri.fsPath) === readmeFileName) return;
     if (!readmePath) return;
     
     try {
+        const readmeDirPath = path.dirname(readmePath);
+        const currentHash = calculateDirectoryHash(readmeDirPath);
+        const previousHash = directoryHashes.get(readmeDirPath);
+        
+        // 如果目录结构没有变化，则不更新README
+        if (previousHash === currentHash) {
+            return;
+        }
+        
         const rootPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
-        const content = await generateReadmeContent(path.dirname(readmePath), 0, rootPath);
+        const content = await generateReadmeContent(readmeDirPath, 0, rootPath);
         fs.writeFileSync(readmePath, content, 'utf8');
+        
+        // 更新目录结构的哈希值
+        directoryHashes.set(readmeDirPath, currentHash);
     } catch (error) {
         console.error('自动更新README失败:', error);
     }
