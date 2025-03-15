@@ -1,0 +1,63 @@
+{
+  "name": "autoreadmegen",
+  "displayName": "AutoReadmeGen",
+  "description": "AutoReadmeGen",
+  "publisher": "eggman-1024",
+  "icon": "icon.png",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": ["onFileSystem:**/*"],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "AutoReadmeGen",
+      "properties": {
+        "AutoReadmeGen.readmeFileName": {
+          "type": "string",
+          "default": "readme.md",
+          "description": "生成的说明文档文件名"
+        },
+        "AutoReadmeGen.autoUpdateEnabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否自动更新说明文档"
+        }
+      }
+    },
+    "commands": [{
+      "command": "AutoReadmeGen.helloWorld",
+      "title": "Hello World"
+    },
+    {
+      "command": "AutoReadmeGen.createReadme",
+      "title": "AutoReadmeGen"
+    }],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "AutoReadmeGen.createReadme",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.98.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.21.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
