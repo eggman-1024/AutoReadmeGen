@@ -5,7 +5,7 @@
  * @LastEditTime: 2025-03-15 22:37:40
  * @Description: 请填写简介
 -->
-# autoreadme
+# AutoReadmeGen
 
 ## Table of Contents
 
@@ -19,7 +19,11 @@
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+😫You must feel frustrated when you are testing your code and you need to create a lot of similar named `test` files. You will probably mix up these files after a few days. You might create many files named `test`, `test1`, `test2`...... and then completely forget their purposes.
+
+
+🎉 But NOW you can use this extension to automatically generate a `readme.md` file based on the file structure of your chosen directory.
+
 
 ## Getting Started <a name = "getting_started"></a>
 
@@ -35,22 +39,16 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
+- Open `Visual Studio Code`.
+- Go to Extensions or use the keyboard shortcut `Cmd+Shift+X`or `Ctrl+Shift+X`.
+- Search for `AutoReadmeGen`.
+- Install the extension.
+- Restart `Visual Studio Code` and your project.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
 
 ## Usage <a name = "usage"></a>
 
-Add notes about how to use the system.
+- Press the keyboard shortcut `Cmd+Shift+P` or `Ctrl+Shift+P` In the context menu, write and select `AutoReadmeGen`.
+
+A `readme.md` file with the corresponding file structure will be created in your selected directory.
+
