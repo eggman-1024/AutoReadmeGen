@@ -2,7 +2,7 @@
  * @Author: rtzhang
  * @Date: 2025-03-15 20:39:11
  * @LastEditors: rtzhang
- * @LastEditTime: 2025-03-15 22:37:40
+ * @LastEditTime: 2025-03-16 11:18:55
  * @Description: 请填写简介
 -->
 # AutoReadmeGen
@@ -25,7 +25,7 @@
 🎉 But NOW you can use this extension to automatically generate a `readme.md` file based on the file structure of your chosen directory.
 
 
-## Getting Started <a name = "getting_started"></a>
+<!-- ## Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
@@ -35,7 +35,7 @@ What things you need to install the software and how to install them.
 
 ```
 Give examples
-```
+``` -->
 
 ### Installing
 
