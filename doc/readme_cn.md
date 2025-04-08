@@ -32,7 +32,9 @@
 
 观看演示视频，了解AutoReadmeGen的工作方式：
 
-![演示视频](../demo/demo_v0.1.0.mp4)
+https://github.com/user-attachments/assets/c67312fa-d875-401c-a86d-d6374e189a6b
+
+
 
 <!-- ## 入门 <a name = "getting_started"></a>
 
