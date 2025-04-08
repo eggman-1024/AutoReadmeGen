@@ -33,7 +33,9 @@
 
 Watch the demo video to see how AutoReadmeGen works:
 
-![Demo Video](demo/demo_v0.1.0.mp4)
+https://github.com/user-attachments/assets/7fa1d1ad-3b8d-49e1-a154-fdfdddb58496
+
+
 
 <!-- ## Getting Started <a name = "getting_started"></a>
 
