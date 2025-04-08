@@ -1,7 +1,7 @@
 {
   "name": "autoreadmegen",
   "displayName": "AutoReadmeGen",
-  "description": "AutoReadmeGen",
+  "description": "Automatically generate autoReadme.md files to show the directory structure of the project.",
   "publisher": "eggman-1024",
   "icon": "icon.png",
   "version": "0.1.0",
