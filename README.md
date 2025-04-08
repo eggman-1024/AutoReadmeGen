@@ -6,7 +6,7 @@
  * @Description: Please fill in the introduction
 -->
 # AutoReadmeGen
-
+[中文文档](./doc/readme_cn.md)
 
 ## Table of Contents
 
