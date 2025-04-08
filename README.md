@@ -29,6 +29,11 @@
 - **File Filtering**: Exclude files or directories that don't need to be recorded through the `.readignore` file
 - **Automatic Updates**: Automatically update document content when the directory structure changes
 
+## Demo
+
+Watch the demo video to see how AutoReadmeGen works:
+
+![Demo Video](demo/demo_v0.1.0.mp4)
 
 <!-- ## Getting Started <a name = "getting_started"></a>
 
