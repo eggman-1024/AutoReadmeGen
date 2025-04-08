@@ -56,7 +56,7 @@ Give examples
 
 1. Right-click on the target folder in the Explorer
 2. Select `AutoReadmeGen` from the context menu
-3. Enter the directory level to record (default is 1)
+3. Enter the directory level to record (default is 0)
 
 The system will create the following files in the selected directory:
 - `autoReadme.md`: A document containing the corresponding file structure
